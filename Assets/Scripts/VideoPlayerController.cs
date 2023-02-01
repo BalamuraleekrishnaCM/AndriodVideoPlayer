@@ -7,8 +7,7 @@ using UnityEngine.Video;
 public class VideoPlayerController : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
-    public string videoFileName = "video.mp4";
-    public Text path;
+    public string videoFileName ;
     string videoFilePath;
     public GameObject[] button;
     public Transform VideoListMenu;
@@ -58,18 +57,12 @@ public class VideoPlayerController : MonoBehaviour
         videoPlayer.Play();
         selectionMenu.SetActive(false);
         controlsPanel.SetActive(true);
-
-
-
-        // video.url = root;
-        // video.Play();
     }
     public void PlayVideo(FileDetails file)
     {
 
         videoFilePath = Application.persistentDataPath + "/" + "Video/" + file.fileName;
         //videoFilePath = "/storage/emulated/0/360Videos/Video (" + file.id + ").mp4";
-        path.text = videoFilePath;
         videoPlayer.url = videoFilePath;
         StartCoroutine("LoadVideoRoutine");
 
@@ -90,7 +83,6 @@ public class VideoPlayerController : MonoBehaviour
         for (int i = 0; i < fileEntries.Length; i++)
         {
             Debug.Log(fileEntries[i]);
-           // button = Instantiate(buttonPrefab, VideoListMenu);
             string fileName = Path.GetFileName(fileEntries[i]);
             button[i].GetComponentInChildren<TMPro.TMP_Text>().text = fileName;
       
