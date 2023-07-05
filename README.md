@@ -1,2 +1,2 @@
 # AndriodVideoPlayer
- Andriod Video Player with UNity
+ Andriod Video Player with Unity
